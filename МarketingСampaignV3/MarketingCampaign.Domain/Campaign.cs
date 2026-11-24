@@ -1,0 +1,29 @@
+﻿namespace MarketingCampaign.Domain;
+
+//Обязательные поля (помеченные в задании звёздочкой*) являются non-nullable
+//а необязательные поля выражены через nullable
+//
+public class Campaign
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+    public string Name { get; set; } = string.Empty;
+    public CampaignType Type { get; set; } = CampaignType.Discount;
+    public CampaignStatus Status { get; set; } = CampaignStatus.Redacting;
+    public DateTime? StartDate { get; set; }
+    public DateTime? EndDate { get; set; }
+
+    public List<string> SalesChannels { get; set; } = new();
+    public List<string> Products { get; set; } = new();
+    public List<ProductType> ProductTypes { get; set; } = new();
+    public List<PartyType> PartyTypes { get; set; } = new();
+    public List<CustomerCategory> CustomerCategories { get; set; } = new();
+    public List<ClaimsHistory> ClaimsHistories { get; set; } = new();
+
+    public DiscountType? DiscountType { get; set; }
+    public decimal? DiscountValue { get; set; }
+    public decimal? MinPremium { get; set; }
+    public decimal? MaxPremium { get; set; }
+
+    public DynamicDiscountType? DynamicDiscountType { get; set; }
+    public List<DynamicCondition> DynamicConditions { get; set; } = new();
+}
